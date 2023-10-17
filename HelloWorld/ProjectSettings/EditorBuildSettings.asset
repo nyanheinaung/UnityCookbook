@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/_DigitalTimer.unity
+    guid: f2aa0a67e69d58041a1c6d8dd083b9f1
+  - enabled: 1
+    path: Assets/Scenes/_CountdownTimer.unity
+    guid: ba2e2ae43f0f8194f9c7a078eeafd31d
   m_configObjects: {}
