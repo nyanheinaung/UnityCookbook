@@ -12,10 +12,19 @@ public class ArrangeActions : MonoBehaviour
 		panelUI = GetComponent<RectTransform>();
 	}
 
-	public void SwitchToFront()
+	public void MoveOneUp()
+	{
+		 
+		int currentSiblingDepth = panelUI.GetSiblingIndex();
+		panelUI.SetSiblingIndex(currentSiblingDepth + 1);
+		print(currentSiblingDepth);
+	}
+
+	public void MoveOneDown()
 	{
 		int currentSiblingDepth = panelUI.GetSiblingIndex();
-		panelUI.SetSiblingIndex(currentSiblingDepth - 1);
+		panelUI.SetSiblingIndex(Mathf.Max(0, currentSiblingDepth - 1));
+		print(currentSiblingDepth);
 	}
 }
 
