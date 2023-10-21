@@ -29,6 +29,7 @@ public class SliderTimerDisplay : MonoBehaviour
         sliderUI.minValue = 0;
         sliderUI.maxValue = 1;
         sliderUI.wholeNumbers = false;
+        
     }
 
     // Update is called once per frame
