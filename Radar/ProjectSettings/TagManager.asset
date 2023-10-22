@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Blip
+  - Cube
+  - Sphere
+  - Radar
   layers:
   - Default
   - TransparentFX
