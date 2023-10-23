@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/_CountdownTimer.unity
     guid: ba2e2ae43f0f8194f9c7a078eeafd31d
+  - enabled: 1
+    path: Assets/Scenes/_CustomCursor.unity
+    guid: 7ce58bd81ed5d18488fca02560cc4fef
   m_configObjects: {}
