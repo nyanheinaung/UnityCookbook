@@ -5,21 +5,23 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     private PlayerInventoryDisplay playerInventoryDisplay;
-    private bool carryingStar = false;
+    //private bool carryingStar = false;
 
+    private int starCount = 0;
     // Start is called before the first frame update
     void Start()
     {
         playerInventoryDisplay = GetComponent<PlayerInventoryDisplay>();
-        playerInventoryDisplay.OnChangeCarryingStar(carryingStar);
+        playerInventoryDisplay.OnChangeCarryingStar(starCount);
     }
 
     private void OnTriggerEnter2D(Collider2D hit)
     {
         if (hit.CompareTag("Star"))
         {
-            carryingStar = true;
-            playerInventoryDisplay.OnChangeCarryingStar(carryingStar);
+            //carryingStar = true;
+            starCount++;
+            playerInventoryDisplay.OnChangeCarryingStar(starCount);
             Destroy(hit.gameObject);
         }
     }

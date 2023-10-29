@@ -7,11 +7,27 @@ public class PlayerInventoryDisplay : MonoBehaviour
 {
     public Text starText;
 
-    public void OnChangeCarryingStar(bool carryingStar)
+    public Image[] starPlaceHolders;
+    public Sprite carryStarImage;
+    public Sprite noStarImage;
+    
+    public void OnChangeCarryingStar(int starCount)
     {
-        string starMessage = "no star :-(";
-        if (carryingStar) starMessage = "Carrying star :-)";
-        starText.text = starMessage;
+        for(int i = 0; i < starPlaceHolders.Length; i++)
+        {
+            if (i < starCount)
+            {
+                starPlaceHolders[i].sprite = carryStarImage;
+            }
+            else
+            {
+                starPlaceHolders[i].sprite = noStarImage;
+            }
+        }
+        
+            string starMessage = "Stars = " + starCount;
+            starText.text = starMessage;
+               
     }
 
 }
