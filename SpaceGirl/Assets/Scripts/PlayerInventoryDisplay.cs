@@ -38,6 +38,13 @@ public class PlayerInventoryDisplay : MonoBehaviour
 
     public void OnChangeInventory(List<PickUp> inventory)
     {
+        inventory.Sort(
+            delegate(PickUp p1, PickUp p2)
+            {
+                return p1.description.CompareTo(p2.description);
+            }
+        );
+
         inventoryText.text = "";
         string inventoryList = "Items in Inventory : ";
         int numItem = inventory.Count;
