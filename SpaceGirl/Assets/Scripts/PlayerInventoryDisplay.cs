@@ -5,17 +5,17 @@ using UnityEngine.UI;
 
 public class PlayerInventoryDisplay : MonoBehaviour
 {
-    public Text starText;
+    //public Text starText;
     public Text inventoryText;
     private string newInventoryText;
 
-    public Image[] starPlaceHolders;
-    public Sprite carryStarImage;
-    public Sprite noStarImage;
+    //public Image[] starPlaceHolders;
+    //public Sprite carryStarImage;
+    //public Sprite noStarImage;
 
-    public Image allStarx4;
+    //public Image allStarx4;
     
-    public void OnChangeCarryingStar(int starCount)
+/*    public void OnChangeCarryingStar(int starCount)
     {
         int newWidth = 100 * starCount;
         allStarx4.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, newWidth);
@@ -35,7 +35,7 @@ public class PlayerInventoryDisplay : MonoBehaviour
             string starMessage = "Stars = " + starCount;
             starText.text = starMessage;
                
-    }
+    }*/
 
     public void OnChangeInventory(Dictionary<PickUp.PickUpType, int> inventory)
     {
