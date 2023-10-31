@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    private InventoryManager inventoryManager;
     private PlayerInventoryDisplay playerInventoryDisplay;
     //private bool carryingStar = false;
 
@@ -13,9 +14,10 @@ public class PlayerInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        inventoryManager = GetComponent<InventoryManager>();
         playerInventoryDisplay = GetComponent<PlayerInventoryDisplay>();
         playerInventoryDisplay.OnChangeCarryingStar(starCount);
-        playerInventoryDisplay.OnChangeInventory(inventory);
+       // playerInventoryDisplay.OnChangeInventory(inventory);
     }
 
     private void OnTriggerEnter2D(Collider2D hit)
@@ -31,8 +33,8 @@ public class PlayerInventory : MonoBehaviour
         if (hit.CompareTag("PickUp"))
         {
             PickUp item = hit.GetComponent<PickUp>();
-            inventory.Add(item);
-            playerInventoryDisplay.OnChangeInventory(inventory);
+            inventoryManager.Add(item);
+            //playerInventoryDisplay.OnChangeInventory(inventory);
             Destroy(hit.gameObject);
         }
     }

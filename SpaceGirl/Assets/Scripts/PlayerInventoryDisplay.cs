@@ -7,6 +7,7 @@ public class PlayerInventoryDisplay : MonoBehaviour
 {
     public Text starText;
     public Text inventoryText;
+    private string newInventoryText;
 
     public Image[] starPlaceHolders;
     public Sprite carryStarImage;
@@ -36,31 +37,35 @@ public class PlayerInventoryDisplay : MonoBehaviour
                
     }
 
-    public void OnChangeInventory(List<PickUp> inventory)
+    public void OnChangeInventory(Dictionary<PickUp.PickUpType, int> inventory)
     {
-        inventory.Sort(
+     /*   inventory.Sort(
             delegate(PickUp p1, PickUp p2)
             {
                 return p1.description.CompareTo(p2.description);
             }
-        );
+        );*/
 
         inventoryText.text = "";
-        string inventoryList = "Items in Inventory : ";
+        newInventoryText = "Items in Inventory : ";
+
         int numItem = inventory.Count;
+
         print(numItem);
-        for(int i = 0; i<numItem; i++)
+
+        foreach(var item in inventory)
         {
-            string description = inventory[i].description;
-            inventoryList += " [ " + description + " ]";
+            int itemTotal = item.Value;
+            string description = item.Key.ToString();
+            newInventoryText += " [ " + description + itemTotal + " ]";
         }
 
         if(numItem < 1)
         {
-            inventoryList = "Empty Inventory";
+            newInventoryText = "Empty Inventory";
         }
 
-        inventoryText.text = inventoryList;
+        inventoryText.text = newInventoryText;
     }
 
 }

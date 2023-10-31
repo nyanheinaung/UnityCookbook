@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 119413336}
   - component: {fileID: 119413342}
   - component: {fileID: 119413341}
+  - component: {fileID: 119413343}
   m_Layer: 0
   m_Name: player-SpaceGirl
   m_TagString: Player
@@ -290,6 +291,18 @@ MonoBehaviour:
   carryStarImage: {fileID: 21300000, guid: d13c7d8dbc1871b4488b05778a5a4787, type: 3}
   noStarImage: {fileID: 21300000, guid: eac2f894221176a4db2d9bb294bf3068, type: 3}
   allStarx4: {fileID: 1313156051}
+--- !u!114 &119413343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119413335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88160b7088175c64ab3d944e2c9ea3d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &350208054
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,11 +558,11 @@ RectTransform:
   m_Father: {fileID: 1227510216}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 50}
-  m_Pivot: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 50}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &581631902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +591,7 @@ MonoBehaviour:
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
+    m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Inventory
@@ -710,6 +723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: star
+  type: 0
 --- !u!1 &925395292
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: key
+  type: 1
 --- !u!61 &925395294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -862,6 +877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: key
+  type: 1
 --- !u!61 &1022002218
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1463,6 +1479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: heart
+  type: 2
 --- !u!61 &1634293770
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1649,6 +1666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: star
+  type: 0
 --- !u!61 &1867976755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1769,6 +1787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   description: heart
+  type: 2
 --- !u!61 &2106933464
 BoxCollider2D:
   m_ObjectHideFlags: 0
