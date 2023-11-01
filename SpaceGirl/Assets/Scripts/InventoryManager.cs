@@ -19,8 +19,15 @@ public class InventoryManager : MonoBehaviour
     public void Add(PickUp pickup)
     {
         PickUp.PickUpType type = pickup.type;
-        int oldTotal = 0;
-        if(items.TryGetValue(type, out oldTotal))
+        
+	//Does this value necessary?
+	//Yes. It is necessary for receiving "out" value parameter from TryGetValue Method
+	//associated with Dictionary 
+	//int oldTotal = 0;
+        
+	//If you want to delete the previous line, you need to create a new int in the TryGetValue Method
+	//like this TryGetValue(type, out int oldTotal)
+	if(items.TryGetValue(type, out int oldTotal))
         {
             items[type] = oldTotal + 1;
         }

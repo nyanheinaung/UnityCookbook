@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private InventoryManager inventoryManager;
-    private PlayerInventoryDisplay playerInventoryDisplay;
+    //private PlayerInventoryDisplay playerInventoryDisplay;
     //private bool carryingStar = false;
 
     //private List<PickUp> inventory = new List<PickUp>();
@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         inventoryManager = GetComponent<InventoryManager>();
-        playerInventoryDisplay = GetComponent<PlayerInventoryDisplay>();
+        //playerInventoryDisplay = GetComponent<PlayerInventoryDisplay>();
         //playerInventoryDisplay.OnChangeCarryingStar(starCount);
        // playerInventoryDisplay.OnChangeInventory(inventory);
     }
