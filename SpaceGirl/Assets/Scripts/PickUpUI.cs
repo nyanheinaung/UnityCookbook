@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PickUpUI : MonoBehaviour
 {
+    //Test comment to be deleted
     // Start is called before the first frame update
     void Start()
     {
