@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class PickUpUI : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
+    public GameObject starYellow;
+    public GameObject starGrey;
+
+    void Awake()
     {
-        
+        DisplayEmpty();    
+    }
+ 
+    public void DisplayYellow()
+    {
+        starYellow.SetActive(true);
+        starGrey.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DisplayGrey()
     {
-        
+        starYellow.SetActive(false);
+        starGrey.SetActive(true);
     }
+
+    public void DisplayEmpty()
+    {
+        starYellow.SetActive(false);
+        starGrey.SetActive(false);
+    }
+
 }
