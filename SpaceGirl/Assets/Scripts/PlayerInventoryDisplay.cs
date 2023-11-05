@@ -68,4 +68,23 @@ public class PlayerInventoryDisplay : MonoBehaviour
         inventoryText.text = newInventoryText;
     }
 
+    const int NUM_INVNETORY_SLOTS = 10;
+    public PickUpUI[] slots = new PickUpUI[NUM_INVNETORY_SLOTS];
+
+    public void OnChangeStarTotal(int starTotal)
+    {
+        for(int i = 0; i<NUM_INVNETORY_SLOTS; i++)
+        {
+            PickUpUI slot = slots[i];
+            if (i < starTotal)
+            {
+                slot.DisplayYellow();
+            }
+            else
+            {
+                slot.DisplayGrey();
+            }
+        }
+    }
+
 }
