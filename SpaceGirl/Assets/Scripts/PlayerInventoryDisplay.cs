@@ -68,8 +68,33 @@ public class PlayerInventoryDisplay : MonoBehaviour
         inventoryText.text = newInventoryText;
     }
 
-    const int NUM_INVNETORY_SLOTS = 10;
-    public PickUpUI[] slots = new PickUpUI[NUM_INVNETORY_SLOTS];
+    const int NUM_INVNETORY_SLOTS = 13;
+    private PickUpUI[] slots = new PickUpUI[NUM_INVNETORY_SLOTS];
+
+    public GameObject slotGrid;
+    public GameObject starSlotPrefab;
+
+    private void Awake()
+    {
+        for(int i = 0; i<NUM_INVNETORY_SLOTS; i++)
+        {
+            GameObject starSlotGO = (GameObject)Instantiate(starSlotPrefab);
+            starSlotGO.transform.SetParent(slotGrid.transform);
+            starSlotGO.transform.localScale = new Vector3(1, 1, 1);
+            slots[i] = starSlotGO.GetComponent<PickUpUI>();
+        }    
+    }
+
+    private void Start()
+    {
+        float panelWidth = slotGrid.GetComponent<RectTransform>().rect.width;
+        print("slotGrid.GetComponent<RectTransform>().rect = " + slotGrid.GetComponent<RectTransform>().rect);
+
+        GridLayoutGroup gridLayoutGroup = slotGrid.GetComponent<GridLayoutGroup>();
+        float xCellSize = panelWidth / NUM_INVNETORY_SLOTS;
+        xCellSize -= gridLayoutGroup.spacing.x;
+        gridLayoutGroup.cellSize = new Vector2(xCellSize, xCellSize);
+    }
 
     public void OnChangeStarTotal(int starTotal)
     {
