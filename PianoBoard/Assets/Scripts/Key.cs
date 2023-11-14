@@ -1,34 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Key : MonoBehaviour
 {
     private Renderer keyRenderer;
-    //private Color initialColor;
-    //private static PlayNStop playNStop;
 
     private AudioSource keySound;
+
     private RecordNFinish recordNFinishRef;
-    
+
+    public Button recordButton;
+
+    private Coroutine waitCoroutine;
 
     private void Start()
     {
         keyRenderer = GetComponent<Renderer>();
         keyRenderer.material.SetColor("_Color", Color.white);
-
         keySound = GetComponent<AudioSource>();
-
+        recordNFinishRef = recordButton.GetComponent<RecordNFinish>();
     }
 
     public void PlayKey()
     {
         keySound.Play();
+        //waitCoroutine =
+        StartCoroutine(WaitForSound());
     }
 
-    void StopKey()
+    public void StopKey()
     {
-
+        keySound.Stop();
+        //StopCoroutine(waitCoroutine);
     }
 
     void OnMouseDown()
@@ -36,25 +41,32 @@ public class Key : MonoBehaviour
         //Only works when recording is not playing
         if (!PlayNStop.playing)
         {
-            keyRenderer.material.SetColor("_Color", Color.red);
-            PlayKey();
 
             //If recording is true, add key to list
             if (RecordNFinish.recording)
             {
                 recordNFinishRef.AddKey(this);
             }
+
+            LightUp();
+            PlayKey();
+            LightOff();
         }
 
     }
 
-    void OnMouseUp()
+    public void LightUp()
     {
-        //if (!playNStop.isPlaying)
-        //{
-            keyRenderer.material.SetColor("_Color", Color.white);
-        //}
-
+        keyRenderer.material.SetColor("_Color", Color.red);
     }
 
+    public void LightOff()
+    {
+        keyRenderer.material.SetColor("_Color", Color.white);
+    }
+
+    IEnumerator WaitForSound()
+    {
+        yield return new WaitWhile(() => keySound.isPlaying);
+    }
 }
