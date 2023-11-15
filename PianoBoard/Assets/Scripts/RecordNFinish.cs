@@ -76,33 +76,7 @@ public class RecordNFinish : MonoBehaviour
     {
         stopIsPressed = false;
 
-        if (keyRecord.Count > 0)
-        {
-            foreach (Key key in keyRecord)
-            {
-                currentKey = key;
-                key.LightUp();
-                key.PlayKey();
-
-                key.LightOff();
-                
-                //waitCoroutine = 
-                    StartCoroutine(WaitAndContinue());
-
-                if (stopIsPressed)
-                {
-                    break;
-                }
-            }
-
-            
-
-            
-        }
-        else
-        {
-            print("No key recorded!");
-        }
+        waitCoroutine = StartCoroutine(WaitAndContinue());
 
         //playNStopRef.Clicked();
         
@@ -114,14 +88,42 @@ public class RecordNFinish : MonoBehaviour
         {
             stopIsPressed = true;
             currentKey.StopKey();
-          //  StopCoroutine(waitCoroutine);
-          
+            if(waitCoroutine!=null)
+            {
+                StopCoroutine(waitCoroutine);
+            }
+           
         }
 
     }
 
     IEnumerator WaitAndContinue()
     {
-        yield return new WaitForSeconds(interval);
+        if (keyRecord.Count > 0)
+        {
+            foreach (Key key in keyRecord)
+            {
+                currentKey = key;
+                //key.LightUp();
+                key.PlayKey();
+
+                //key.LightOff();
+                yield return new WaitForSeconds(interval);
+                //waitCoroutine = 
+                //StartCoroutine(WaitAndContinue());
+
+                if (stopIsPressed)
+                {
+                    break;
+                }
+            }
+
+        }
+        else
+        {
+            print("No key recorded!");
+        }
+
+        playNStopRef.Clicked();
     }
 }

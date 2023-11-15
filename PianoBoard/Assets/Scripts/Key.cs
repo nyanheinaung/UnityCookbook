@@ -15,6 +15,8 @@ public class Key : MonoBehaviour
 
     private Coroutine waitCoroutine;
 
+    public float keySoundInterval = 0.1f;
+
     private void Start()
     {
         keyRenderer = GetComponent<Renderer>();
@@ -25,15 +27,16 @@ public class Key : MonoBehaviour
 
     public void PlayKey()
     {
-        keySound.Play();
-        //waitCoroutine =
-        StartCoroutine(WaitForSound());
+        waitCoroutine = StartCoroutine(WaitForSound());
     }
 
     public void StopKey()
     {
         keySound.Stop();
-        //StopCoroutine(waitCoroutine);
+        if (waitCoroutine != null)
+        {
+            StopCoroutine(waitCoroutine);
+        }
     }
 
     void OnMouseDown()
@@ -48,9 +51,9 @@ public class Key : MonoBehaviour
                 recordNFinishRef.AddKey(this);
             }
 
-            LightUp();
-            PlayKey();
-            LightOff();
+            StartCoroutine(WaitForSound());
+            
+
         }
 
     }
@@ -67,6 +70,9 @@ public class Key : MonoBehaviour
 
     IEnumerator WaitForSound()
     {
-        yield return new WaitWhile(() => keySound.isPlaying);
+        LightUp();
+        keySound.Play();
+        yield return new WaitForSeconds(keySoundInterval);
+        LightOff();
     }
 }
