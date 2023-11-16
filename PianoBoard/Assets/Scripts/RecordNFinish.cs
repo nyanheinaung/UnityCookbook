@@ -25,16 +25,21 @@ public class RecordNFinish : MonoBehaviour
 
     private void Start()
     {
+        //Button reference
         recordButton = GetComponent<Button>();
+        //Initialize Text as Record
         ChangeButtonText("RECORD");
+        //Get reference to PlayNStop script
         playNStopRef = playButton.GetComponent<PlayNStop>();
     }
 
+     //When button clicked, change text and do relavant task, if valid
     public void Clicked()
     {
         //If not playing, start recording
         if (!PlayNStop.playing)
         {
+            //If there is FinishRecording method, this should take place in both there and StartRecording method
             recording = !recording;
 
             if (recording)
@@ -50,40 +55,39 @@ public class RecordNFinish : MonoBehaviour
         }
     }
 
+    //Text change method, should change to a seperate script??
     void ChangeButtonText(string buttonText)
     {
         recordButton.GetComponentInChildren<Text>().text = buttonText;
     }
 
+    //If record is in progress, any key pressed will be added to the keyList
     public void AddKey(Key addedKey)
-    {
-        
+    {      
         keyRecord.Add(addedKey);
     }
 
+    //Empty previous record when new recording starts
     public void StartRecording()
     {
         EmptyRecord();
-        //print("Recording Started");
     }
 
     public void EmptyRecord()
     {
         keyRecord.Clear();
     }
-
+    
     public void PlayRecord()
-    {
+    {    
+        //Loop breaker for when Stop is pressed while playing
         stopIsPressed = false;
-
         waitCoroutine = StartCoroutine(WaitAndContinue());
-
-        //playNStopRef.Clicked();
-        
     }
 
     public void StopPlayingRecord()
     {
+        //Check whether there is a valid record. if not, there will be null exception
         if (keyRecord.Count > 0)
         {
             stopIsPressed = true;
@@ -91,10 +95,8 @@ public class RecordNFinish : MonoBehaviour
             if(waitCoroutine!=null)
             {
                 StopCoroutine(waitCoroutine);
-            }
-           
+            }   
         }
-
     }
 
     IEnumerator WaitAndContinue()
@@ -104,13 +106,8 @@ public class RecordNFinish : MonoBehaviour
             foreach (Key key in keyRecord)
             {
                 currentKey = key;
-                //key.LightUp();
                 key.PlayKey();
-
-                //key.LightOff();
                 yield return new WaitForSeconds(interval);
-                //waitCoroutine = 
-                //StartCoroutine(WaitAndContinue());
 
                 if (stopIsPressed)
                 {
@@ -124,6 +121,8 @@ public class RecordNFinish : MonoBehaviour
             print("No key recorded!");
         }
 
+        //If the record finished playing, change back to Play state by
+        //automatically clicking it once.
         playNStopRef.Clicked();
     }
 }
