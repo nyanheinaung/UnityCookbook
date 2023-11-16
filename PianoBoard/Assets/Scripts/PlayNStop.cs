@@ -13,10 +13,24 @@ public class PlayNStop : MonoBehaviour
 
     private Button playButton;
 
+    // Start is called before the first frame update
+    void Start()
+    {
+        //Get button reference
+        playButton = GetComponent<Button>();
+        //Initialize Text to Play
+        ChangeButtonText("PLAY");
+        //Get a reference to RecordNFinish script
+        recordNFinishRef = recordButton.GetComponent<RecordNFinish>();
+    }
+    
+    //When button clicked, change text and do relavant task, if valid
     public void Clicked()
     {
+        //Only works if not recording
         if (!RecordNFinish.recording)
         {
+            //Change play or stop
             playing = !playing;
 
             if (playing)
@@ -32,29 +46,21 @@ public class PlayNStop : MonoBehaviour
         }    
     }
 
+    //Since the KeyList is placed and private, actual playing take places in RecordNFinish
     void PlayRecord()
     {
-        //print("Start playing");
         recordNFinishRef.PlayRecord();
     }
 
+    //Same as above
     void StopRecord()
     {
-        //print("Stop playing");
         recordNFinishRef.StopPlayingRecord();
     }
 
+    //Text change method, should change to a seperate script??
     void ChangeButtonText(string buttonText)
     {
         playButton.GetComponentInChildren<Text>().text = buttonText;
     }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        playButton = GetComponent<Button>();
-        ChangeButtonText("PLAY");
-        recordNFinishRef = recordButton.GetComponent<RecordNFinish>();
-    }
-
 }
