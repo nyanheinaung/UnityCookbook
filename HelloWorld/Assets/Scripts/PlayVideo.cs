@@ -1,27 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-[RequireComponent(typeof(AudioSource))]
+using UnityEngine.Video;
 
 public class PlayVideo : MonoBehaviour
 {
     public bool loop = true;
     public bool playFromStart = true;
-    public MovieTexture video;
-    public AudioClip audioClip;
-    private AudioSource audio;
+ 
+    private VideoPlayer videoPlayer;
+
     void Start()
     {
-        audio = GetComponent<AudioSource>();
-        if (!video)
-            video = GetComponent<Renderer>().material.mainTexture as
-            MovieTexture;
-        if (!audioClip)
-            audioClip = audio.clip;
-        video.Stop();
-        audio.Stop();
-        video.loop = loop;
-        audio.loop = loop;
+        videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer.isLooping = loop;
+       
         if (playFromStart)
             ControlMovie();
     }
@@ -32,15 +24,13 @@ public class PlayVideo : MonoBehaviour
 
 public void ControlMovie()
     {
-        if (video.isPlaying)
+        if (videoPlayer.isPlaying)
         {
-            video.Pause();
-            audio.Pause();
+            videoPlayer.Pause();
         }
         else
         {
-            video.Play();
-            audio.Play();
+            videoPlayer.Play();
         }
     }
 }
