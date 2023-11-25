@@ -41,8 +41,8 @@ public class PictureInPicture : MonoBehaviour
         
         float swPercent = sw * 0.01f;
         float shPercent = sh * 0.01f;
-        float xOffPercent = xOffset * 0.01f;
-        float yOffPercent = yOffset * 0.01f;
+        float xOffPercent = xOffset * swPercent;
+        float yOffPercent = yOffset * shPercent;
 
         int xOff;
         int yOff;
