@@ -1679,6 +1679,45 @@ MonoBehaviour:
   photoGUI: {fileID: 1556160126}
   frameGUI: {fileID: 1817423929}
   ratio: 0.25
+--- !u!114 &1516547311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516547309}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7de6d2455a3643a48bc1855a8f6f8242, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
+  intensity: 0.375
+  chromaticAberration: 0.2
+  axialAberration: 0.5
+  blur: 0
+  blurSpread: 0.75
+  luminanceDependency: 0.25
+  blurDistance: 2.5
+  vignetteShader: {fileID: 0}
+  separableBlurShader: {fileID: 0}
+  chromAberrationShader: {fileID: 0}
+--- !u!114 &1516547316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516547309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cec98eaa3a66ca24994c67b072bc3bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoom: 2
+  speedIn: 100
+  speedOut: 100
+  vMax: 10
 --- !u!1001 &1521241944
 PrefabInstance:
   m_ObjectHideFlags: 0
