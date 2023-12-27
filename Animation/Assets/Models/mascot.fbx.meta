@@ -108,7 +108,22 @@ ModelImporter:
     13700000: MascotBodyGeo
     13700002: MascotEyesGeo
     13700004: MascotHeadGeo
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: 4511183987d8a834cac520af9c9d35a2, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: EyeWhite
+    second: {fileID: 2100002, guid: 4511183987d8a834cac520af9c9d35a2, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pupils
+    second: {fileID: 2100004, guid: 4511183987d8a834cac520af9c9d35a2, type: 3}
   materials:
     importMaterials: 1
     materialName: 0
