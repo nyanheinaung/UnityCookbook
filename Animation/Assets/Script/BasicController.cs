@@ -39,12 +39,12 @@ public class BasicController : MonoBehaviour
             float zSpeed = v * speedLimit;
             float speed = Mathf.Sqrt(h * h + v * v);
 
-            if(v!= 0 && !moveDiagonally)
+            if (v != 0 && !moveDiagonally)
             {
                 xSpeed = 0;
             }
 
-            if(v!=0 && keyboardRotate)
+            if (v != 0 && keyboardRotate)
             {
                 this.transform.Rotate(Vector3.up * h, Space.World);
             }
@@ -57,6 +57,24 @@ public class BasicController : MonoBehaviour
             anim.SetFloat("zSpeed", zSpeed, transitionTime, Time.deltaTime);
             anim.SetFloat("xSpeed", xSpeed, transitionTime, Time.deltaTime);
             anim.SetFloat("Speed", speed, transitionTime, Time.deltaTime);
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                anim.SetBool("Grenade", true);
+            }
+            else
+            {
+                anim.SetBool("Grenade", false);
+            }
+
+            if (Input.GetButtonDown("Fire1"))
+            {
+                anim.SetBool("Fire", true);
+            }
+            if(Input.GetButtonUp("Fire1"))
+            {
+                anim.SetBool("Fire", false);
+            }
         }
     }
 }
