@@ -12,6 +12,12 @@ public class BasicController : MonoBehaviour
     public bool mouseRotate = true;
     public bool keyboardRotate = false;
 
+    public float jumpHeight = 3f;
+    private float verticalSpeed = 0f;
+    private float xVelocity = 0f;
+    private float zVelocity = 0f;
+    private bool collidedAbove = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +30,32 @@ public class BasicController : MonoBehaviour
     {
         if (controller.isGrounded)
         {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                anim.SetBool("Jump", true);
+                verticalSpeed = jumpHeight;
+            }
+
+            if (Input.GetKey(KeyCode.Q))
+            {
+                anim.SetBool("TurnLeft", true);
+                transform.Rotate(Vector3.up * (Time.deltaTime * -45.0f), Space.World);
+            }
+            else
+            {
+                anim.SetBool("TurnLeft", false);
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                anim.SetBool("TurnRight", true);
+                transform.Rotate(Vector3.up * (Time.deltaTime * 45.0f), Space.World);
+            }
+            else
+            {
+                anim.SetBool("TurnRight", false);
+            }
+
             if (Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.LeftShift))
             {
                 speedLimit = 0.5f;
@@ -71,10 +103,43 @@ public class BasicController : MonoBehaviour
             {
                 anim.SetBool("Fire", true);
             }
-            if(Input.GetButtonUp("Fire1"))
+            if (Input.GetButtonUp("Fire1"))
             {
                 anim.SetBool("Fire", false);
             }
+        }
+    }
+
+    private void OnAnimatorMove()
+    {
+        Vector3 deltaPosition = anim.deltaPosition;
+        if (controller.isGrounded)
+        {
+            xVelocity = controller.velocity.x;
+            zVelocity = controller.velocity.z;
+        }
+        else
+        {
+            deltaPosition.x = xVelocity * Time.deltaTime;
+            deltaPosition.z = zVelocity * Time.deltaTime;
+            anim.SetBool("Jump", false);
+        }
+        deltaPosition.y = verticalSpeed * Time.deltaTime;
+        controller.Move(deltaPosition);
+        verticalSpeed += Physics.gravity.y * Time.deltaTime;
+        if ((controller.collisionFlags & CollisionFlags.Below) != 0)
+        {
+            verticalSpeed = 0;
+            collidedAbove = false;
+        }
+        if((controller.collisionFlags & CollisionFlags.Above) != 0)
+        {
+            if (!collidedAbove)
+            {
+                verticalSpeed = 0;
+            }
+
+            collidedAbove = true;
         }
     }
 }
