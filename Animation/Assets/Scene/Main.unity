@@ -635,6 +635,18 @@ CharacterController:
   m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &895779125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895779122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7754a683fcc1f4cbdaa34b96091c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &895779127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,6 +1210,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e492cdf5008ce0a4ab85c689e53f9d76, type: 3}
+--- !u!1 &1453087073 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 112958, guid: e492cdf5008ce0a4ab85c689e53f9d76,
+    type: 3}
+  m_PrefabInstance: {fileID: 1453087072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1453087074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453087073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e18371d1bdbe841b1b3fcd4b085b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1536943920 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: ae79c5e2422eb474083be4e21ba139a1,
@@ -1450,6 +1480,10 @@ PrefabInstance:
     - target: {fileID: 100142, guid: ae79c5e2422eb474083be4e21ba139a1, type: 3}
       propertyPath: m_Name
       value: MsLaser@T-Pose
+      objectReference: {fileID: 0}
+    - target: {fileID: 100142, guid: ae79c5e2422eb474083be4e21ba139a1, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 400142, guid: ae79c5e2422eb474083be4e21ba139a1, type: 3}
       propertyPath: m_LocalPosition.x
