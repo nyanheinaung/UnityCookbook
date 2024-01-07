@@ -15,20 +15,23 @@ public class LandMine : MonoBehaviour
         {
             active = false;
             StartCoroutine(Reactivate());
-            collision.gameObject.GetComponent<RagdollCharacter>().ActivateRagdoll();
-            print("2nd");
+            
+            
             Vector3 explosionPos = transform.position;
+            
             Collider[] colliders = Physics.OverlapSphere(explosionPos, range);
+            
             foreach(Collider hit in colliders)
             {
                 if (hit.GetComponent<Rigidbody>())
                 {
+                    
                     hit.GetComponent<Rigidbody>().AddExplosionForce(force, explosionPos, range, up);
                 }
             }
+            
 
-
-
+            //collision.gameObject.GetComponent<RagdollCharacter>().ActivateRagdoll();
         }
     }
 
@@ -36,8 +39,7 @@ public class LandMine : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         active = true;
-
-        print("1st");
+       
     }
 
 }
