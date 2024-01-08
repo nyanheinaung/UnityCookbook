@@ -14,12 +14,18 @@ public class RagdollCharacter : MonoBehaviour
     {
         gameObject.GetComponent<CharacterController>().enabled = false;
         gameObject.GetComponent<BasicController>().enabled = false;
+        gameObject.GetComponent<Animator>().SetBool("Fire", false);
+        gameObject.GetComponent<Animator>().SetBool("Grenade", false);
+        gameObject.GetComponent<Animator>().SetFloat("xSpeed", 0);
+        gameObject.GetComponent<Animator>().SetFloat("zSpeed", 0);
+
         gameObject.GetComponent<Animator>().enabled = false;
+        
 
         foreach (Rigidbody bone in GetComponentsInChildren<Rigidbody>())
         {
             bone.isKinematic = false;
-            bone.detectCollisions = false;
+            bone.detectCollisions = true;
         }
 
         foreach (Collider col in GetComponentsInChildren<Collider>())

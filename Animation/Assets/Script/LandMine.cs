@@ -15,23 +15,22 @@ public class LandMine : MonoBehaviour
         {
             active = false;
             StartCoroutine(Reactivate());
-            
-            
+
+            collision.gameObject.GetComponent<RagdollCharacter>().ActivateRagdoll();
+
             Vector3 explosionPos = transform.position;
             
             Collider[] colliders = Physics.OverlapSphere(explosionPos, range);
-            
-            foreach(Collider hit in colliders)
+
+
+
+            foreach (Collider hit in colliders)
             {
                 if (hit.GetComponent<Rigidbody>())
                 {
-                    
                     hit.GetComponent<Rigidbody>().AddExplosionForce(force, explosionPos, range, up);
                 }
-            }
-            
-
-            //collision.gameObject.GetComponent<RagdollCharacter>().ActivateRagdoll();
+            }           
         }
     }
 
