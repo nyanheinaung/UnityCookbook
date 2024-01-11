@@ -6,12 +6,15 @@ public class PlayerControl : MonoBehaviour
 {
     public Transform corner_max;
     public Transform corner_min;
+
     public float speed = 40;
     private Rigidbody rigidBody;
+
     private float x_min;
     private float x_max;
     private float z_min;
     private float z_max;
+
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody>();
@@ -20,24 +23,24 @@ public class PlayerControl : MonoBehaviour
         z_max = corner_max.position.z;
         z_min = corner_min.position.z;
     }
+
     void FixedUpdate()
     {
         KeyboardMovement();
-        KeepWithinMinMaxRectangle();
-    }
-    private void KeyboardMovement()
-    {
-        float xMove = Input.GetAxis("Horizontal") * speed * Time.
-   deltaTime;
-        float zMove = Input.GetAxis("Vertical") * speed * Time.
-        deltaTime;
-        float xSpeed = xMove * speed;
-        float zSpeed = zMove * speed;
-        Vector3 newVelocity = new Vector3(xSpeed, 0, zSpeed);
-        rigidBody.velocity = newVelocity;
         // restrict player movement
         KeepWithinMinMaxRectangle();
     }
+
+    private void KeyboardMovement()
+    {
+        float xMove = Input.GetAxis("Horizontal");
+        float zMove = Input.GetAxis("Vertical");
+        float xSpeed = xMove * speed * Time.deltaTime;
+        float zSpeed = zMove * speed * Time.deltaTime;
+        Vector3 newVelocity = new Vector3(xSpeed, 0, zSpeed);
+        rigidBody.velocity = newVelocity;
+    }
+
     private void KeepWithinMinMaxRectangle()
     {
         float x = transform.position.x;
@@ -47,6 +50,7 @@ public class PlayerControl : MonoBehaviour
         float clampedZ = Mathf.Clamp(z, z_min, z_max);
         transform.position = new Vector3(clampedX, y, clampedZ);
     }
+
     void OnDrawGizmos()
     {
         Vector3 top_right = Vector3.zero;
