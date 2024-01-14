@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class SpawnPointManager : MonoBehaviour
 {
+    private GameObject[] spawnPoints;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject RandomSpawnPoint()
     {
-        
+        int r = Random.Range(0, spawnPoints.Length);
+        return spawnPoints[r];
     }
 }
