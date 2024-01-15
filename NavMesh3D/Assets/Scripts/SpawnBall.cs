@@ -39,8 +39,19 @@ public class SpawnBall : MonoBehaviour
 
     private void CreateSphere()
     {
-        GameObject spawnPoint = spawnPointManager.RandomSpawnPoint();
-        GameObject newBall = (GameObject)Instantiate(prefabBall, spawnPoint.transform.position, Quaternion.identity);
-        Destroy(newBall, destroyAfterDelay);
+        //GameObject spawnPoint = spawnPointManager.RandomSpawnPoint();
+        GameObject spawnPoint = spawnPointManager.NearestSpawnPoint(transform.position);
+
+        if (spawnPoint)
+        {
+            GameObject newBall = (GameObject)Instantiate(prefabBall, spawnPoint.transform.position, Quaternion.identity);
+            Destroy(newBall, destroyAfterDelay);
+        }
+        else
+        {
+            Debug.LogError("No spawnPoint found!!");
+        }
+
+
     }
 }
