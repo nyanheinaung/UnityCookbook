@@ -15,6 +15,11 @@ public class ArrowNPCMovement : MonoBehaviour
         HeadForDestination();
     }
 
+    private void Update()
+    {
+        HeadForDestination();    
+    }
+
     private void HeadForDestination()
     {
         Vector3 destination = targetGO.transform.position;
