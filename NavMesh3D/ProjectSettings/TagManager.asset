@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Checkpoint
   - Death
+  - Waypoint
   layers:
   - Default
   - TransparentFX
