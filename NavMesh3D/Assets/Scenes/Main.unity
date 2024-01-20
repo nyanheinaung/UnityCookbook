@@ -510,6 +510,7 @@ GameObject:
   - component: {fileID: 391072548}
   - component: {fileID: 391072547}
   - component: {fileID: 391072546}
+  - component: {fileID: 391072550}
   m_Layer: 0
   m_Name: Capsule-waypoint5
   m_TagString: Waypoint
@@ -590,6 +591,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &391072550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391072545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a921276811f080141902fd27df710d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 2065283993}
 --- !u!1 &509577509
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,6 +916,7 @@ GameObject:
   - component: {fileID: 609492264}
   - component: {fileID: 609492263}
   - component: {fileID: 609492262}
+  - component: {fileID: 609492266}
   m_Layer: 0
   m_Name: Capsule-waypoint1
   m_TagString: Waypoint
@@ -981,6 +997,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &609492266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609492261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a921276811f080141902fd27df710d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1615258497}
 --- !u!1 &765130075
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,6 +1218,7 @@ GameObject:
   - component: {fileID: 819180519}
   - component: {fileID: 819180518}
   - component: {fileID: 819180517}
+  - component: {fileID: 819180521}
   m_Layer: 0
   m_Name: Capsule-waypoint2
   m_TagString: Waypoint
@@ -1268,6 +1299,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819180521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819180516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a921276811f080141902fd27df710d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 609492266}
 --- !u!1 &834801925
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2149,7 @@ GameObject:
   - component: {fileID: 1615258495}
   - component: {fileID: 1615258494}
   - component: {fileID: 1615258493}
+  - component: {fileID: 1615258497}
   m_Layer: 0
   m_Name: Capsule-waypoint0
   m_TagString: Waypoint
@@ -2184,6 +2230,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1615258497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615258492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a921276811f080141902fd27df710d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 391072550}
 --- !u!1 &1708255523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,16 +2475,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1725551069}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd4187652968b3b409d923968387797f, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c87ddab85400f14da43ec1ff93b3b9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1615258492}
-  - {fileID: 609492261}
-  - {fileID: 819180516}
-  - {fileID: 2138055249}
-  - {fileID: 2065283988}
-  - {fileID: 391072545}
+  waypoint: {fileID: 1615258497}
 --- !u!114 &1725551077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2432,7 +2486,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725551069}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83d3def8b98a8cf4aa170284239ace40, type: 3}
   m_Name: 
@@ -2541,6 +2595,7 @@ GameObject:
   - component: {fileID: 2065283991}
   - component: {fileID: 2065283990}
   - component: {fileID: 2065283989}
+  - component: {fileID: 2065283993}
   m_Layer: 0
   m_Name: Capsule-waypoint4
   m_TagString: Waypoint
@@ -2621,6 +2676,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2065283993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065283988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a921276811f080141902fd27df710d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 2138055254}
 --- !u!1 &2072044741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,6 +2823,7 @@ GameObject:
   - component: {fileID: 2138055252}
   - component: {fileID: 2138055251}
   - component: {fileID: 2138055250}
+  - component: {fileID: 2138055254}
   m_Layer: 0
   m_Name: Capsule-waypoint3
   m_TagString: Waypoint
@@ -2834,3 +2904,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138055254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138055249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a921276811f080141902fd27df710d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 819180521}

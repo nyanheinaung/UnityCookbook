@@ -15,7 +15,9 @@ public class WaypointManager : MonoBehaviour
         }
 
         int currentIndex = Array.IndexOf(waypoints, current);
+
         int nextIndex = ((currentIndex + 1) % waypoints.Length);
+        
 
         return waypoints[nextIndex];
     }
