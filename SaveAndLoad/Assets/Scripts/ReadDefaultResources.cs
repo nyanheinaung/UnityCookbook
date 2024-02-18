@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(AudioType))]
+[RequireComponent (typeof(AudioSource))]
 public class ReadDefaultResources : MonoBehaviour
 {
     public string fileName = "externalTexture";
@@ -12,7 +12,7 @@ public class ReadDefaultResources : MonoBehaviour
     private string textFileContents;
 
     public string audioFileName = "soundtrack";
-    private AudioType audioFile;
+    private AudioClip audioFile;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +25,12 @@ public class ReadDefaultResources : MonoBehaviour
         textFileContents = textAsset.text;
         Debug.Log(textFileContents);
 
-        AudioType audioSource = GetComponent<AudioType>();
-        //audioSource.clip
+       /* AudioSource audioSource = GetComponent<AudioSource>();
+        audioSource.clip = (AudioClip)Resources.Load(audioFileName);
+        if(!audioSource.isPlaying )
+        {
+            audioSource.Play();
+        }*/
 
     }
 
