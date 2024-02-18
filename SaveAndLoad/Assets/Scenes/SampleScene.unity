@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: externalTexture
+  textFileName: cities
 --- !u!65 &1050564838
 BoxCollider:
   m_ObjectHideFlags: 0
