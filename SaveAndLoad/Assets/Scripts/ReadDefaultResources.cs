@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent (typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource))]
 public class ReadDefaultResources : MonoBehaviour
 {
     public string fileName = "externalTexture";
@@ -25,18 +25,14 @@ public class ReadDefaultResources : MonoBehaviour
         textFileContents = textAsset.text;
         Debug.Log(textFileContents);
 
-       /* AudioSource audioSource = GetComponent<AudioSource>();
-        audioSource.clip = (AudioClip)Resources.Load(audioFileName);
-        if(!audioSource.isPlaying )
+        AudioSource audioSource = GetComponent<AudioSource>();
+        audioFile = (AudioClip)Resources.Load(audioFileName);
+        audioSource.clip = audioFile;
+        if (!audioSource.isPlaying)
         {
             audioSource.Play();
-        }*/
+        }
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
