@@ -18,11 +18,11 @@ public class ReadManualResourceImageFile : MonoBehaviour
         url = Path.Combine(url, "Resources");
         url = Path.Combine(url, fileName);
 
-        UnityWebRequest uwr = UnityWebRequest.Get(url);
+        UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url);
 
         yield return uwr.SendWebRequest();
 
-        Texture2D texture = uwr.downloadHandler.data;
+        Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
         GetComponent<Image>().sprite = TextureToSprite(texture);
     }
 

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/LoadingExternalResourceFromResourceFolder.unity
+    guid: 2f21ef3c2ab01df4699cc7c40e8f0d47
   m_configObjects: {}
