@@ -9,12 +9,14 @@ public class UpdateScoreText : MonoBehaviour
     void Start()
     {
         Text scoreText = GetComponent<Text>();
-        int totalAttempts = Player.scoreCorrect + Player.scoreIncorrect;
+        int scoreCorrect = PlayerPrefs.GetInt("scoreCorrect");
+        int scoreIncorrect = PlayerPrefs.GetInt("scoreIncorrect");
+        int totalAttempts = scoreCorrect + scoreIncorrect;
         string scoreMessage = "";
         if (totalAttempts > 0)
         {
             scoreMessage = "Score:";
-            scoreMessage += Player.scoreCorrect + "/" + totalAttempts;
+            scoreMessage += scoreCorrect + "/" + totalAttempts;
         }
         
         scoreText.text = scoreMessage;

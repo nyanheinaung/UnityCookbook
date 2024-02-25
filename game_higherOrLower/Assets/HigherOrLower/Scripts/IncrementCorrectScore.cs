@@ -7,7 +7,8 @@ public class IncrementCorrectScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Player.scoreCorrect++;
+        int newScoreCorrect = 1 + PlayerPrefs.GetInt("scoreCorrect");
+        PlayerPrefs.SetInt("scoreCorrect", newScoreCorrect);
     }
 
     // Update is called once per frame
