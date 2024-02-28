@@ -207,3 +207,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db9014a9d58122644b171ea5b6bdbbef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelDataTextFile: {fileID: 4900000, guid: cdd212dc1ccc0584ba98134671b613da, type: 3}
+  floor_848: {fileID: 1875119248150471831, guid: 66f18223477578844aa4c93db8bfab1e,
+    type: 3}
+  corridor_849: {fileID: 4772133509013993392, guid: 634a404e196a2e84090184da4a7574dd,
+    type: 3}
+  horiz_1034: {fileID: 7326345426282741845, guid: a70297eebb6b4694bb870195ea11604e,
+    type: 3}
+  vert_1025: {fileID: 8659557781129382164, guid: 6d95a503dbc764a429664041bf679446,
+    type: 3}
+  corpse_175: {fileID: 5367451427347053440, guid: 8cd2b6321413ae04ea925e28e743a51e,
+    type: 3}
+  door_844: {fileID: 2179773886833641800, guid: 906055ded09d6564fb50c13684b53cb5,
+    type: 3}
+  potion_675: {fileID: 6321191111127004446, guid: bd790244206747b4e8ec6e03e61875da,
+    type: 3}
+  chest_586: {fileID: 21256202085401353, guid: f1a9b3692b746594ba30f13e40c7c85f, type: 3}
+  alter_583: {fileID: 7505850316143539039, guid: e3e1e5f423d23884b93181a15a11de0e,
+    type: 3}
+  stairs_up_994: {fileID: 2895744357036741633, guid: 22656cfee25b05c46a7c63dacf346694,
+    type: 3}
+  stairs_down_993: {fileID: 3212776287073752306, guid: 4a5b245e94bd58c48a1176ebe6247fe0,
+    type: 3}
+  wizard_287: {fileID: 1072757458888878143, guid: c19524695361c8e4c9b496fcce3b5e95,
+    type: 3}
