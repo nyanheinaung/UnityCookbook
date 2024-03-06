@@ -14,6 +14,7 @@ public class PauseGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(QualitySettings.names);
         Cursor.visible = isPaused;
         Slider slider = GetComponent<Slider>();
         slider.maxValue = QualitySettings.names.Length;
